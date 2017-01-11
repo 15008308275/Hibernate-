@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hxzy.hibernet001.model.Department" table="department">
+		<id name="did" type="int">
+			<column name="did"/>
+			<generator class="increment"/>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name"/>
+		</property>
+		<property name="number" type="int" unique="false">
+			<column name="number"/>
+		</property>
+		<property name="descripte" type="java.lang.String">
+			<column name="descripte"/>
+		</property>
+		<set name="employees" >
+			<key column="did"/>
+			<one-to-many class="com.hxzy.hibernet001.model.Employee"/>
+		</set>
+	</class>
+</hibernate-mapping>
